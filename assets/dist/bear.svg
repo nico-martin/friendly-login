@@ -1,0 +1,12 @@
+<svg width="150px" height="150px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <circle id="earLeft" cx="20" cy="25" r="15" fill="white" stroke="#964B00" stroke-width="5" />
+    <circle id="earRight" cx="80" cy="25" r="15" fill="white" stroke="#964B00" stroke-width="5" />
+    <circle id="head" cx="50" cy="55" r="40" fill="#964B00" />
+    <ellipse id="mouthWrapper" cx="50" cy="76" rx="22" ry="12" fill="white"/>
+    <ellipse id="nose" cx="50" cy="64" rx="8" ry="5" fill="black"/>
+    <ellipse id="eyeLeft" cx="35" cy="45" rx="4" ry="7" fill="blank"/>
+    <path d="M 27 35 a 0 0 0 0 0 15 0" stroke="black" stroke-width="2" fill-opacity="0" transform="rotate(20,35,45)" />
+    <ellipse id="eyeRight" cx="65" cy="45" rx="4" ry="7" fill="black"/>
+    <path d="M 57 35 a 0 0 0 0 0 15 0" stroke="black" stroke-width="2" fill-opacity="0" transform="rotate(-20,65,45)" />
+    <path d="M 38 76 a 15 10 0 0 1 24 0" stroke="black" stroke-width="2" fill="pink" fill-opacity="0" />
+</svg>
