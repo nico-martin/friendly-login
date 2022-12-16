@@ -40,7 +40,7 @@ const updateProgress = (newProgress) => {
 
 loadModels().then(() =>
   startVideo((value) => {
-    submit.setAttribute("disabled", "true");
+    smiling === null && submit.setAttribute("disabled", "true");
     smiling = value >= 0.9;
   })
 );

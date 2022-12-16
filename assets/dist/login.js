@@ -10425,8 +10425,6 @@ var videoSize = { width: 1200, height: 720 };
 var loadModels = function () {
     return Promise.all([
         face_api_js__WEBPACK_IMPORTED_MODULE_1__.nets.tinyFaceDetector.loadFromUri("".concat(_vars__WEBPACK_IMPORTED_MODULE_0__.vars.pluginUrl, "assets/dist/models/")),
-        face_api_js__WEBPACK_IMPORTED_MODULE_1__.nets.faceLandmark68Net.loadFromUri("".concat(_vars__WEBPACK_IMPORTED_MODULE_0__.vars.pluginUrl, "assets/dist/models/")),
-        face_api_js__WEBPACK_IMPORTED_MODULE_1__.nets.faceRecognitionNet.loadFromUri("".concat(_vars__WEBPACK_IMPORTED_MODULE_0__.vars.pluginUrl, "assets/dist/models/")),
         face_api_js__WEBPACK_IMPORTED_MODULE_1__.nets.faceExpressionNet.loadFromUri("".concat(_vars__WEBPACK_IMPORTED_MODULE_0__.vars.pluginUrl, "assets/dist/models/")),
     ]);
 };
@@ -10442,25 +10440,18 @@ var startVideo = function (onHappyChange) {
         var canvas = face_api_js__WEBPACK_IMPORTED_MODULE_1__.createCanvasFromMedia(video);
         canvas.classList.add("shfi-canvas");
         wrapper.append(canvas);
-        var displaySize = videoSize;
-        face_api_js__WEBPACK_IMPORTED_MODULE_1__.matchDimensions(canvas, displaySize);
+        face_api_js__WEBPACK_IMPORTED_MODULE_1__.matchDimensions(canvas, videoSize);
         setInterval(function () { return __awaiter(void 0, void 0, void 0, function () {
-            var detections, resizedDetections;
+            var detections;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, face_api_js__WEBPACK_IMPORTED_MODULE_1__.detectAllFaces(video, new face_api_js__WEBPACK_IMPORTED_MODULE_1__.TinyFaceDetectorOptions())
-                            .withFaceLandmarks()
                             .withFaceExpressions()];
                     case 1:
                         detections = _a.sent();
                         detections.length >= 1
                             ? onHappyChange(detections[0].expressions.happy)
                             : onHappyChange(0);
-                        resizedDetections = face_api_js__WEBPACK_IMPORTED_MODULE_1__.resizeResults(detections, displaySize);
-                        canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-                        face_api_js__WEBPACK_IMPORTED_MODULE_1__.draw.drawDetections(canvas, resizedDetections);
-                        face_api_js__WEBPACK_IMPORTED_MODULE_1__.draw.drawFaceLandmarks(canvas, resizedDetections);
-                        face_api_js__WEBPACK_IMPORTED_MODULE_1__.draw.drawFaceExpressions(canvas, resizedDetections);
                         return [2 /*return*/];
                 }
             });
@@ -10887,7 +10878,7 @@ var updateProgress = function (newProgress) {
 };
 (0,_faceDetection__WEBPACK_IMPORTED_MODULE_1__.loadModels)().then(function () {
     return (0,_faceDetection__WEBPACK_IMPORTED_MODULE_1__.startVideo)(function (value) {
-        submit.setAttribute("disabled", "true");
+        smiling === null && submit.setAttribute("disabled", "true");
         smiling = value >= 0.9;
     });
 });
