@@ -47,3 +47,16 @@ body {
   height: 5px;
   background-color: var(--shfi-c-fur);
 }
+
+.shfi-videoWrapper {
+  position: relative;
+  display: none;
+  transform: scale(0.01);
+  pointer-events: none;
+}
+
+.shfi-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+}

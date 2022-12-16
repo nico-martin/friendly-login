@@ -1,20 +1,22 @@
 {
   "compilerOptions": {
     "noEmit": false,
-    "module": "system",
+    "module": "es6",
     "target": "es5",
     "outDir": "./assets/dist/",
-    "outFile": "./assets/dist/login.js",
-    "rootDir": "./assets/build/",
+    "rootDir": "./assets/src/",
     "moduleResolution": "node",
     //"strict": true,
     "strictNullChecks": false,
     "esModuleInterop": true,
-    "lib": ["es2015","dom"]
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "skipLibCheck": true
   },
   "exclude": [
-    "node_modules",
-    "server",
-    "public"
+    "**/node_modules",
+    "**/assets/dist"
   ]
 }

@@ -29,6 +29,14 @@ class Assets
                 $script_version,
                 true
             );
+
+            wp_add_inline_script(
+                sayhelloFriendlyLogin()->prefix . '-login',
+                'var ' . sayhelloFriendlyLogin()->prefix . 'Vars = ' . json_encode([
+                    'pluginUrl' => trailingslashit(plugin_dir_url(sayhelloFriendlyLogin()->file)),
+                ]),
+                'before'
+            );
         }
 
     }
